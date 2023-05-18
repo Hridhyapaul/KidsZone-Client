@@ -1,7 +1,11 @@
+import Category from "../../Section/Category/Category";
+import Gallery from "../../Section/Gallery/Gallery";
+
 const Home = () => {
     return (
         <div>
-            <h1>This is Home page</h1>
+            <Gallery></Gallery>
+            <Category></Category>
         </div>
     );
 };
