@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import image from '../../../public/images/signUp.jpg'
 import { FaExclamationCircle, FaCheckCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { useContext } from 'react';
 
 const Register = () => {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [passwordSuccess, setPasswordSuccess] = useState('')
+    const [success, setSuccess] = useState('')
+
+    const { createUser, setUser } = useContext(AuthContext)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,7 +21,18 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password)
-    }
+
+        createUser(email, password)
+            .then(result => {
+                const registerUser = result.user
+                form.reset()
+                setUser(registerUser);
+                setSuccess('User Created Successfully! Welcome to our website.')
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    };
 
     const handlePassword = event => {
         const passwordInput = event.target.value;
@@ -51,7 +67,7 @@ const Register = () => {
                     <div className="card flex-shrink-0 w-[45%] max-w-lg bg-base-100">
                         <div className="card-body">
                             <h1 className="text-5xl font-bold text-center"><span className='text-[#D268CC]'>Register</span> now!</h1>
-                            <h1 className='text-lg mt-4 font-bold text-center'>Create a New Account is free</h1>
+                            <p className='d-flex align-items-center mt-2 gap-2'><span className='text-success'>{success}</span></p>
                             {/* Name input */}
                             <form onSubmit={handleSubmit}>
                                 <div className="form-control">
@@ -93,6 +109,7 @@ const Register = () => {
                                     <input className='btn btn-primary bg-[#D268CC] hover:bg-[#bd5cb8] border-0 mb-3 mt-3' type="submit" value="Register" />
                                 </div>
                             </form>
+
                             <div className="flex flex-col w-full border-opacity-50">
                                 <div className="divider">OR</div>
                             </div>
