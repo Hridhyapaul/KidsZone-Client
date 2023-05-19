@@ -50,7 +50,7 @@ const Login = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="w-[45%] text-center lg:text-left">
                         <img className='h-[550px] rounded-2xl w-[800px]' src={image} alt="" />

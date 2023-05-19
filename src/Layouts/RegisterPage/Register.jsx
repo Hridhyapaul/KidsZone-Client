@@ -80,7 +80,7 @@ const Register = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="w-[45%] text-center lg:text-left">
                         <img className='h-[650px] rounded-2xl w-[900px]' src={image} alt="" />
