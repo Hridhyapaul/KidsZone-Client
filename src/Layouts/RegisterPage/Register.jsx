@@ -26,6 +26,7 @@ const Register = () => {
             .then(result => {
                 const registerUser = result.user
                 form.reset()
+                setPassword('')
                 setUser(registerUser);
                 setSuccess('User Created Successfully! Welcome to our website.')
             })
@@ -67,7 +68,7 @@ const Register = () => {
                     <div className="card flex-shrink-0 w-[45%] max-w-lg bg-base-100">
                         <div className="card-body">
                             <h1 className="text-5xl font-bold text-center"><span className='text-[#D268CC]'>Register</span> now!</h1>
-                            <p className='d-flex align-items-center mt-2 gap-2'><span className='text-success'>{success}</span></p>
+                            <p className='text-center'><span className='text-[#4BB543]'>{success}</span></p>
                             {/* Name input */}
                             <form onSubmit={handleSubmit}>
                                 <div className="form-control">

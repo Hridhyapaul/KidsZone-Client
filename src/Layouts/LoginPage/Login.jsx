@@ -1,9 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import image from '../../../public/images/login.jpg'
+import { FaCheckCircle } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const { loginUser } = useContext(AuthContext);
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -11,6 +14,25 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+
+        loginUser(email, password)
+            .then(result => {
+                const loggedUser = result.user
+                console.log(loggedUser)
+                form.reset()
+                setError('')
+                setSuccess('You have logged in successfully')
+            })
+            .catch(error => {
+                console.log(error.message)
+                if (error.message === 'Error (auth/user-not-found)') {
+                    setError('User not found. Please check your credentials and try again.')
+                }
+                if (error.message === 'Error (auth/wrong-password)') {
+                    setError('Invalid password. Please check your password and try again.')
+                }
+                setSuccess('')
+            })
     }
     return (
         <div>
@@ -22,6 +44,16 @@ const Login = () => {
                     <div className="card flex-shrink-0 w-[45%] max-w-lg bg-base-100">
                         <div className="card-body">
                             <h1 className="text-5xl font-bold text-center"><span className='text-[#D268CC]'>Login</span> now!</h1>
+                            <div className='text-center'>
+                            {
+                                error && <p className='text-[#f0ad4e] mt-3'>{error}</p>
+                            }
+                            {
+                                success && <div className='mt-3 flex justify-center'>
+                                    <p className='text-[#4BB543] font-semibold flex justify-start items-center gap-2'><FaCheckCircle className='text-[#4BB543]'></FaCheckCircle> <span>{success}</span> </p>
+                                </div>
+                            }
+                            </div>
                             <form onSubmit={handleLogin}>
                                 {/* Email input */}
                                 <div className="form-control">
