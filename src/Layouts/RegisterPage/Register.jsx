@@ -4,12 +4,14 @@ import { FaExclamationCircle, FaCheckCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useContext } from 'react';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [passwordSuccess, setPasswordSuccess] = useState('')
     const [success, setSuccess] = useState('')
+    const [error, setError] = useState('')
 
     const { createUser, setUser } = useContext(AuthContext)
 
@@ -25,13 +27,18 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const registerUser = result.user
+                console.log(registerUser)
                 form.reset()
                 setPassword('')
                 setUser(registerUser);
+                setError('')
                 setSuccess('User Created Successfully! Welcome to our website.')
+                updateUserData(result.user, name, photo)
             })
             .catch(error => {
                 console.log(error.message)
+                setError(error.message)
+                setSuccess('')
             })
     };
 
@@ -58,17 +65,31 @@ const Register = () => {
         }
 
     }
+
+    const updateUserData = (user, name, photo) => {
+        updateProfile(user, {
+            displayName: name, photoURL: photo
+        })
+            .then(() => {
+                console.log('user name updated')
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="w-[45%] text-center lg:text-left">
-                        <img className='h-[695px] rounded-2xl w-[900px]' src={image} alt="" />
+                        <img className='h-[650px] rounded-2xl w-[900px]' src={image} alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-[45%] max-w-lg bg-base-100">
                         <div className="card-body">
                             <h1 className="text-5xl font-bold text-center"><span className='text-[#D268CC]'>Register</span> now!</h1>
                             <p className='text-center'><span className='text-[#4BB543]'>{success}</span></p>
+                            <p className='text-center'><span className='text-[#f0ad4e]'>{error}</span></p>
                             {/* Name input */}
                             <form onSubmit={handleSubmit}>
                                 <div className="form-control">
