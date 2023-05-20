@@ -1,5 +1,6 @@
 import React from 'react';
 import useTitle from '../../CustomHook/useTitle';
+import Swal from 'sweetalert2';
 
 const AddToys = () => {
     useTitle('Add Toys')

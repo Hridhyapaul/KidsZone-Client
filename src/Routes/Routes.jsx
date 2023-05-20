@@ -8,6 +8,7 @@ import Blog from "../Layouts/Blog/Blog";
 import ViewDetails from "../Layouts/ViewDetails/ViewDetails";
 import Details from "../Layouts/ViewDetails/Details";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import MyToysPage from "../Layouts/MyToys/MyToysPage";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:3000/product/${params.id}`)
       }
     ]
+  },
+  {
+    path: 'myToys',
+    element: <MyToysPage></MyToysPage>,
   }
 ]);
 
