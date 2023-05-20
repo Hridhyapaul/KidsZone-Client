@@ -3,12 +3,14 @@ import image from '../../../public/images/login.jpg'
 import { FaCheckCircle } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const { loginUser, googleSignIn, googleProvider } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -17,6 +19,8 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
 
+        const from = location.state?.from?.pathname || '/'
+
         loginUser(email, password)
             .then(result => {
                 const loggedUser = result.user
@@ -24,6 +28,7 @@ const Login = () => {
                 form.reset()
                 setError('')
                 setSuccess('You have logged in successfully')
+                navigate(from, {replace: true})
             })
             .catch(error => {
                 console.log(error.message)

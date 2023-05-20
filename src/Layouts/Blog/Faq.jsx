@@ -4,7 +4,7 @@ const Faq = () => {
 
 
     return (
-        <div className='space-y-2 max-w-[1100px] mx-auto my-16'>
+        <div className='space-y-2 max-w-[1100px] mx-auto my-16 px-8 lg:px-0'>
             <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
                 <input type="checkbox" />
                 <div className="collapse-title text-xl font-medium">

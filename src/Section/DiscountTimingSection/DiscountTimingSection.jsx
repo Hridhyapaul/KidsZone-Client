@@ -38,21 +38,21 @@ const DiscountTimingSection = () => {
     }, []);
 
     return (
-        <div className="bg-pink-100 py-8 max-w-[1100px] mx-auto mt-16 rounded-lg">
+        <div className="bg-pink-100 py-8 max-w[400px] lg:max-w-[1100px] mx-auto mt-16 rounded-lg">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-5xl font-bold text-center mb-8">Limited Time Discount</h2>
                 <div className="flex justify-center items-center">
 
                     <div className=" bg-white rounded-lg shadow-xl py-6 px-8">
                         <div className="text-2xl font-bold mb-2 text-center">Hurry Up!</div>
-                        <div className='flex items-center justify-center'>
+                        <div className='lg:flex items-center justify-center'>
                             <div className="flex flex-col items-center">
                                 <span className="text-5xl font-bold text-[#D268CC]">30%</span>
                                 <span className="text-xl font-semibold text-gray-700">OFF on Baby Toy Products</span>
                             </div>
                             <div className="flex flex-col items-center ml-8">
                                 <div className="text-xl font-semibold text-gray-700">Offer Ends in</div>
-                                <div className='flex items-center gap-x-4'>
+                                <div className='lg:flex items-center gap-x-4'>
                                     <div className="flex items-center mt-2 bg-[#D268CC] px-5 py-3 rounded-2xl">
                                         <div className="text-4xl font-bold text-white mr-1">{timeRemaining.days.toString().padStart(2, '0')}</div>
                                         <div className="text-lg text-white">Days</div>

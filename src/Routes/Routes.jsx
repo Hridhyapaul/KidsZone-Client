@@ -5,6 +5,7 @@ import RegisterPage from "../Layouts/RegisterPage/RegisterPage";
 import LoginPage from "../Layouts/LoginPage/LoginPage";
 import AddToyPage from "../Layouts/AddToyPage/AddToyPage";
 import Blog from "../Layouts/Blog/Blog";
+import ViewDetails from "../Layouts/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/blogs",
     element: <Blog></Blog>
+  },
+  {
+    path: '/viewDetails',
+    element: <ViewDetails></ViewDetails>
   }
 ]);
 
