@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import { Link } from 'react-router-dom';
 
 const CategoryCard = ({ toy }) => {
-    const { image, name, price, rating } = toy;
+    const {_id, image, name, price, rating } = toy;
 
     const firstExample = {
         size: 24,
@@ -22,7 +22,7 @@ const CategoryCard = ({ toy }) => {
                     <ReactStars {...firstExample} />
                 </div>
                 <div className="card-actions justify-end mt-3">
-                    <Link to='/viewDetails'><button className="bg-[#D268CC] px-4 py-2 text-white rounded-lg">View Details</button></Link>
+                    <Link to={`/viewDetails/${_id}`}><button className="bg-[#D268CC] px-4 py-2 text-white rounded-lg">View Details</button></Link>
                     
                 </div>
             </div>

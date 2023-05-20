@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../CustomHook/useTitle';
 
 const AddToys = () => {
+    useTitle('Add Toys')
     const handleAddProduct = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -13,10 +15,30 @@ const AddToys = () => {
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const details = form.details.value;
-        const productDetails = {
+        const newProducts = {
             name, image, sellerName, sellerEmail, subCategory, price, rating, quantity, details
         }
-        console.log(productDetails)
+        console.log(newProducts)
+        fetch('http://localhost:3000/products', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newProducts)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'New Toy added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    form.reset();
+                }
+            })
     }
     return (
         <div className=''>

@@ -6,6 +6,8 @@ import LoginPage from "../Layouts/LoginPage/LoginPage";
 import AddToyPage from "../Layouts/AddToyPage/AddToyPage";
 import Blog from "../Layouts/Blog/Blog";
 import ViewDetails from "../Layouts/ViewDetails/ViewDetails";
+import Details from "../Layouts/ViewDetails/Details";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -35,8 +37,15 @@ const router = createBrowserRouter([
     element: <Blog></Blog>
   },
   {
-    path: '/viewDetails',
-    element: <ViewDetails></ViewDetails>
+    path: "/viewDetails",
+    element: <ViewDetails></ViewDetails>,
+    children: [
+      {
+        path: ':id',
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:3000/product/${params.id}`)
+      }
+    ]
   }
 ]);
 

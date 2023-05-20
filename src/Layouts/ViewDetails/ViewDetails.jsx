@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Foot from '../../Shared/Footer/Foot';
-import Details from './Details';
+import { Outlet} from 'react-router-dom';
 
 const ViewDetails = () => {
     return (
@@ -9,8 +9,8 @@ const ViewDetails = () => {
             <div>
                 <Navigation></Navigation>
             </div>
-            <div>
-                <Details></Details>
+            <div className='mb-8 lg:my-16'>
+                <Outlet></Outlet>
             </div>
             <div>
                 <Foot></Foot>
