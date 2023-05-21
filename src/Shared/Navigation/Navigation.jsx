@@ -25,7 +25,7 @@ const Navigation = () => {
     }
     return (
         <div className="bg-base-200 py-3 ">
-            <div className="navbar container mx-auto px-3">
+            <div className="navbar max-w-[1100px] lg:mx-auto mx-4">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
