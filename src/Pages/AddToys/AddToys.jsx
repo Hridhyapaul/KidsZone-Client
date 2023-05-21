@@ -20,7 +20,7 @@ const AddToys = () => {
             name, image, sellerName, sellerEmail, subCategory, price, rating, quantity, details
         }
         console.log(newProducts)
-        fetch('http://localhost:3000/products', {
+        fetch('https://kids-zone-server-indol.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -48,7 +48,7 @@ const AddToys = () => {
                     <div className="text-center lg:text-center mt-8">
                         <h1 className="text-5xl font-bold">Add Your <span className='text-[#D268CC]'>Products</span></h1>
                     </div>
-                    <div className="w-full bg-base-100 px-5 mt-8">
+                    <div className="w-full bg-base-100 px-0 lg:px-5 mt-8">
                         <div className="card-body">
                             <form onSubmit={handleAddProduct}>
                                 <div className='grid grid-cols-2 gap-x-8 gap-y-3'>

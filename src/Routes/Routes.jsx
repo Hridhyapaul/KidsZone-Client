@@ -9,6 +9,7 @@ import ViewDetails from "../Layouts/ViewDetails/ViewDetails";
 import Details from "../Layouts/ViewDetails/Details";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyToysPage from "../Layouts/MyToys/MyToysPage";
+import AllToysPage from "../Layouts/AllToysPage/AllToysPage";
 
 const router = createBrowserRouter([
   {
@@ -44,13 +45,17 @@ const router = createBrowserRouter([
       {
         path: ':id',
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:3000/product/${params.id}`)
+        loader: ({params}) => fetch(`https://kids-zone-server-indol.vercel.app/product/${params.id}`)
       }
     ]
   },
   {
     path: 'myToys',
     element: <MyToysPage></MyToysPage>,
+  },
+  {
+    path: 'allToys',
+    element: <AllToysPage></AllToysPage>
   }
 ]);
 
