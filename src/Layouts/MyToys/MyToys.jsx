@@ -16,28 +16,35 @@ const MyToys = () => {
             })
     }, [user])
     return (
-            <div className="overflow-x-auto max-w-[1100px] lg:mx-auto mx-5 my-10 lg:my-16">
-                <h1 className='text-2xl lg:text-5xl font-bold text-center mb-10 lg:mb-16 sticky'>My Toys</h1>
-                    <table className="table w-full">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <th>Delete</th>
-                                <th>Toy Name</th>
-                                <th>Sub-Category</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Details</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                myToys.map(singleToy => <MyToysTable key={singleToy._id} singleToy={singleToy}></MyToysTable>)
-                            }
-                        </tbody>
-                    </table>
+        <div className="overflow-x-auto max-w-[1100px] lg:mx-auto mx-5 my-10 lg:my-16">
+            <h1 className='text-2xl lg:text-5xl font-bold text-center mb-10 lg:mb-16 sticky'>My Toys</h1>
+            <div>
+                <select className="select select-bordered w-full max-w-xs">
+                    <option disabled selected>Sort the toys based on price</option>
+                    <option>Ascending</option>
+                    <option>Descending</option>
+                </select>
             </div>
+            <table className="table w-full">
+                {/* head */}
+                <thead>
+                    <tr>
+                        <th>Toy Name</th>
+                        <th>Sub-Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Details</th>
+                        <th>Action</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        myToys.map(singleToy => <MyToysTable key={singleToy._id} singleToy={singleToy} setMyToys={setMyToys} myToys={myToys}></MyToysTable>)
+                    }
+                </tbody>
+            </table>
+        </div>
     );
 };
 

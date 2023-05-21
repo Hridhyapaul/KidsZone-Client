@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useTitle from '../../CustomHook/useTitle';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const AddToys = () => {
     useTitle('Add Toys')
+    const {user} = useContext(AuthContext)
     const handleAddProduct = (event) => {
         event.preventDefault();
         const form = event.target;

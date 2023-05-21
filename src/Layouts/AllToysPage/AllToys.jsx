@@ -17,11 +17,12 @@ const AllToys = () => {
     }, [])
 
     const handleSearch = () => {
-        fetch(`http://localhost:3000/toySearch/${searchText}`)
+        fetch(`https://kids-zone-server-indol.vercel.app/toySearch/${searchText}`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
             setToys(data)
+
         })
     }
     return (
