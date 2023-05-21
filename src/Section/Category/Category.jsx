@@ -20,7 +20,7 @@ const Category = () => {
     }
 
     return (
-        <div className="px-0 xl:px-4 max-w-[1100px] mx-auto w-full">
+        <div className="px-0 max-w-[1100px] lg:mx-auto mx-4">
             <h1 className="text-2xl lg:text-5xl font-bold lg:mb-16 mb-8 mt-4 lg:mt-14 text-center">Shop by <span className="text-[#D268CC]">Category</span></h1>
             <Tabs>
                 <TabList className="flex border-b-2 border-[#D268CC] space-x-2 lg:mx-0 mx-6">

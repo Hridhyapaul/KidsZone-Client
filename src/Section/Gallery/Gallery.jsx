@@ -12,9 +12,9 @@ const Gallery = () => {
     }, [])
     return (
         <div className="py-8">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1100px] lg:mx-auto mx-4">
                 <h2 className="text-2xl lg:text-5xl font-bold text-center lg:mb-16 mb-8 mt-4 lg:mt-14">Our <span className="text-[#D268CC]">Gallery</span></h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {items.map((item, index) => (
                         <div
                             key={index}
