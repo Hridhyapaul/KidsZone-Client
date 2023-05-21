@@ -5,9 +5,9 @@ import { useLoaderData } from 'react-router-dom';
 const Details = () => {
     const singleProduct = useLoaderData();
     console.log(singleProduct)
-    const { image, details, name, price, quantity, rating } = singleProduct;
+    const { image, details, sellerEmail, sellerName, name, price, quantity, rating } = singleProduct;
 
-    const firstExample = {
+    const productRating = {
         size: 24,
         value: rating,
         edit: false
@@ -28,9 +28,13 @@ const Details = () => {
                     <p className="text-gray-600 mb-4">
                         {details}
                     </p>
-                    <div className='flex justify-between lg:justify-start items-center gap-x-10'>
+                    <div className='flex flex-col gap-y-4'>
+                        <div className="badge badge-lg">{sellerName}</div>
+                        <div className="badge badge-md">{sellerEmail}</div>
+                    </div>
+                    <div className='flex justify-between lg:justify-start items-center gap-x-10 mt-4'>
                         <p className='text-xl font-bold'>${price}</p>
-                        <ReactStars {...firstExample} />
+                        <ReactStars {...productRating} />
                     </div>
 
                     <div className="flex justify-end lg:justify-start mt-5">

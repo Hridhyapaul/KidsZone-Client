@@ -5,7 +5,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const MyToysTable = ({ singleToy, setMyToys, myToys }) => {
     const { user } = useContext(AuthContext)
-    const { _id, name, price, quantity, subCategory, details } = singleToy;
+    const { _id, image, name, price, quantity, sellerEmail, rating, subCategory, details } = singleToy;
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -83,21 +83,30 @@ const MyToysTable = ({ singleToy, setMyToys, myToys }) => {
                 <div className="flex items-center space-x-3">
                     <div>
                         <div className="font-bold">{name}</div>
+                        <div className="text-sm opacity-50">{subCategory}</div>
                     </div>
                 </div>
             </td>
             <td>
-                {subCategory}
+                <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                        <img className='object-cover object-top' src={image} />
+                    </div>
+                </div>
+            </td>
+            <td>
+                {sellerEmail}
 
             </td>
             <td>${price}</td>
+            <td>{rating}</td>
             <td>{quantity}</td>
             <th>
                 <label htmlFor="my-modal-3" className="btn btn-ghost btn-xs">Description</label>
 
                 <input type="checkbox" id="my-modal-3" className="modal-toggle" />
                 <div className="modal">
-                    <div className="modal-box w-11/12 max-w-5xl relative">
+                    <div className="modal-box w-[80%] max-w-5xl relative">
                         <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                         <p className="py-4">{details}</p>
                     </div>

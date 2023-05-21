@@ -18,7 +18,7 @@ const MyToys = () => {
     return (
         <div className="overflow-x-auto max-w-[1100px] lg:mx-auto mx-5 my-10 lg:my-16">
             <h1 className='text-2xl lg:text-5xl font-bold text-center mb-10 lg:mb-16 sticky'>My Toys</h1>
-            <div>
+            <div className='mb-8'>
                 <select className="select select-bordered w-full max-w-xs">
                     <option disabled selected>Sort the toys based on price</option>
                     <option>Ascending</option>
@@ -30,8 +30,10 @@ const MyToys = () => {
                 <thead>
                     <tr>
                         <th>Toy Name</th>
+                        <th>Image</th>
                         <th>Sub-Category</th>
                         <th>Price</th>
+                        <th>Rating</th>
                         <th>Quantity</th>
                         <th>Details</th>
                         <th>Action</th>

@@ -11,18 +11,18 @@ const Banner = () => {
                     <div className=''>
                         <div className='space-y-8 w-full pl-28'>
                             <div>
-                                <button className="rounded text-white bg-[#FF6799] hover:bg-[#f34d85] border-0 text-2xl px-8 py-5">Big Discount</button>
+                                <button className="rounded text-white bg-[#D268CC] hover:bg-[#c54fbf] border-0 text-md lg:text-2xl px-4 lg:px-8 lg:py-5 py-2">Big Discount</button>
                             </div>
-                            <p className='text-white text-8xl font-extrabold'>KIDS OFFER</p>
-                            <p className='text-5xl text-white'>We make your children happier <br />
+                            <p className='text-white text-3xl lg:text-8xl font-extrabold'>KIDS OFFER</p>
+                            <p className='text-2xl lg:text-5xl text-white'>We make your children happier <br />
                                 with the best toys</p>
                             <div>
-                                <button className="rounded-full text-white bg-[#FF6799] hover:bg-[#f34d85] border-0 text-xl px-8 py-3">Shop Now</button>
+                                <button className="rounded-full text-white bg-[#D268CC] hover:bg-[#c54fbf] border-0 text-sm lg:text-xl px-4 lg:px-8 py-2 lg:py-3">Shop Now</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="absolute flex justify-between gap-4 transform -translate-y-1/2 left-14 right-14 top-1/2">
+                <div className="absolute flex justify-between gap-4 transform -translate-y-1/2 left-8 lg:left-14 right-8 lg:right-14 top-1/2">
                     <a href="#slide2" className="btn btn-circle">❮</a>
                     <a href="#slide2" className="btn btn-circle">❯</a>
                 </div>
@@ -34,13 +34,13 @@ const Banner = () => {
                     <div className=''>
                         <div className='space-y-8 w-full pl-28'>
                             <div>
-                                <button className="rounded text-white bg-[#FF6799] hover:bg-[#f34d85] border-0 text-2xl px-8 py-5">Big Discount</button>
+                                <button className="rounded text-white bg-[#D268CC] hover:bg-[#c54fbf] border-0 text-2xl px-8 py-5">Big Discount</button>
                             </div>
                             <p className='text-white text-8xl font-extrabold'>KIDS OFFER</p>
                             <p className='text-5xl text-white'>We make your children happier <br />
                                 with the best toys</p>
                             <div>
-                                <button className="rounded-full text-white bg-[#FF6799] hover:bg-[#f34d85] border-0 text-xl px-8 py-3">Shop Now</button>
+                                <button className="rounded-full text-white bg-[#D268CC] hover:bg-[#c54fbf] border-0 text-xl px-8 py-3">Shop Now</button>
                             </div>
                         </div>
                     </div>
